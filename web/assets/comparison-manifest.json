@@ -1,0 +1,231 @@
+{
+  "project": "LiDAR2CAD",
+  "coordinate_extent_xyxy": [
+    -3.7,
+    298.8,
+    -1.8,
+    246.9
+  ],
+  "dimensions": [
+    1800,
+    1480
+  ],
+  "policy": "Display only; identical map extent, aspect ratio, scale bar and raster dimensions. The design view uses author-supplied red circle annotations. Frozen geometry unchanged. No fitting, shifts, synthetic perturbations or new experiments.",
+  "design_stage": "Author-annotated original design at archived initial registration, not locally corrected.",
+  "cloud_display": "Source voxel centroids, top-down XY projection; deterministic striding matches the manuscript cloud display policy.",
+  "complete_display": "Manuscript complete reconstruction, including observed/inferred walls, unverified retained design, columns and mapped facilities. Display provenance does not imply field verification.",
+  "evaluation_scope": "Qualitative full-scene comparison; quantitative metrics remain restricted to annotated evaluation regions.",
+  "assets": [
+    {
+      "asset": "assets/compare-complete.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "9e4bb334e51376b4c2f00ef7564642a4fc57bfb87f8efd5a22d126dd6e1d743a",
+      "bytes": 596636,
+      "inputs": [
+        {
+          "source": "TII/results/independent_validation/region_truth_v3/joint_reconstruction_v4/joint_scene_state.json",
+          "sha256": "b6bad32dd0f7265e9a779cd6614b6bd71e637b1bdfbe6931ddd1c6792ca0e944"
+        },
+        {
+          "source": "TII/paper/figures/prior_completion_v4/fig2_design_display_sources.geojson",
+          "sha256": "10e8f66133b8f05522f4fc09ee759fd4590311ba924933ba1879f33b11a59613"
+        },
+        {
+          "source": "TII/results/full_rewrite_20261024/views/full.json",
+          "sha256": "95a0ed219d25a0ffea81ef02dcc55f79b8a3bb8c74fb81d78b68c6ddb71f9f21"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 9435,
+        "column_paths": 1999,
+        "facility_paths": 1822
+      }
+    },
+    {
+      "asset": "assets/compare-cloud.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "3273a134fe1c0f99c8f057b7bc9ff8d2572c26b416ae1823992f6250b66ed78d",
+      "bytes": 642028,
+      "inputs": [
+        {
+          "source": "TII/data/semantic_cache/exact_voxels.npz",
+          "sha256": "cc4b5d59934bf8e077ef267ee8f0f34c0563a1358464a049b3c2f653daec54ea"
+        }
+      ],
+      "display_counts": {
+        "source_points_in_view": 4548535,
+        "displayed_points": 151618,
+        "display_stride": 30
+      }
+    },
+    {
+      "asset": "assets/compare-design.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "5a76d6b3dc65d0bb4e655bdd8bb673866d444b52b13784872c2a0c29f691f759",
+      "bytes": 609494,
+      "inputs": [
+        {
+          "source": "TII/paper/figures/\u8bbe\u8ba1\u7a3f\u5e26\u6807\u6ce8.pdf",
+          "sha256": "715d8ef195f8f0636f3cb4e518bb27da1465bda91f10a7c84c9918b7932012f1"
+        },
+        {
+          "source": "outputs/parking/design_fusion/icpar_r309_aligned/artifacts/design_arch.json",
+          "sha256": "b82645de7809dfa18a3d2f502c40fe7d55113186cf75d3ce5f04f8227c95ba62"
+        },
+        {
+          "source": "TII/paper/figures/full_rewrite_20261024/fig3a_cad_overlay.json",
+          "sha256": "696829754d79d07e422b72529e0784167653651aad2f2276d4c4d602b34cd901"
+        },
+        {
+          "source": "2021.10.27\u4ea4\u901a\u8bbe\u65bdA-W-\u5730\u4e0b\u5ba4_t8(1)-2.dxf",
+          "sha256": "a934781671ebfee0294373f47d541850180355a1e6a9f6eb0d5da541bc3a3a70"
+        }
+      ],
+      "display_counts": {
+        "wall": 400,
+        "column": 1986,
+        "opening": 322,
+        "facility": 1805
+      }
+    },
+    {
+      "asset": "assets/compare-lidar.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "f808222106cf828370d8e2b9e508ce1c86015cc6542f9374a065fc9d189a4eb5",
+      "bytes": 135288,
+      "inputs": [
+        {
+          "source": "TII/results/full_rewrite_20261024/views/lidar_only.json",
+          "sha256": "0084550562d26fbddbb523844a3bbfed044e2f2674074e0cab0d3c4535bb32e4"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 3605,
+        "column_paths": 370
+      }
+    },
+    {
+      "asset": "assets/compare-hough.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "120733c82649223f23c1fbda2a42ad4c1a7c6944721940ccfc22d94ab53cb577",
+      "bytes": 655606,
+      "inputs": [
+        {
+          "source": "TII/results/full_rewrite_20261024/views/probabilistic_hough.json",
+          "sha256": "be760278a9aee38916bafcc1c8d13445c3dc3ada7945ee84aecd156c3350ee4b"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 72632,
+        "column_paths": 0
+      }
+    },
+    {
+      "asset": "assets/compare-contour.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "46234076dc47e689ca1fe31602a4c9b1067bc782ea39f551cb43f5f1b7d11a81",
+      "bytes": 782486,
+      "inputs": [
+        {
+          "source": "TII/results/full_rewrite_20261024/views/dp_contour.json",
+          "sha256": "9e69662961ebae4b8f8d05dde4aab8dfea2cc0ff9aa51b57383ab48892d66b56"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 21583,
+        "column_paths": 0
+      }
+    },
+    {
+      "asset": "assets/compare-ransac.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "f29342d7bd174d787f1dc16fdd1449034e83adfb1d165528843320e40fdc49d6",
+      "bytes": 28072,
+      "inputs": [
+        {
+          "source": "TII/results/full_rewrite_20261024/views/ransac_lines.json",
+          "sha256": "a95ff10786aed35f85525d2860c877fe0338b3bb138b3dde80588fc38af39173"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 148,
+        "column_paths": 0
+      }
+    },
+    {
+      "asset": "assets/compare-skeleton.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "b58817d381edc9e817d26347377324d98e26b0c447571fbb66b674aaf0e76199",
+      "bytes": 417906,
+      "inputs": [
+        {
+          "source": "TII/results/full_rewrite_20261024/views/morph_skeleton.json",
+          "sha256": "146df18d176c506d7b4d62350b4886b09fb1b12b86e8e4ca8f7b024b5a37fb9b"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 15070,
+        "column_paths": 0
+      }
+    },
+    {
+      "asset": "assets/compare-lsd.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "52d6b6ee61b41c2d2498725727b4c768371926648ce40549d1f55351e2d281fe",
+      "bytes": 246426,
+      "inputs": [
+        {
+          "source": "TII/results/full_rewrite_20261024/views/lsd.json",
+          "sha256": "151f826a1dca21715e23fe54f347c97543a7d36258503a3876f4554bb7b5b26b"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 5146,
+        "column_paths": 0
+      }
+    },
+    {
+      "asset": "assets/compare-fld.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "34f2b38b25e50ff461f2ab5203590c24eac29195b818578525c7330d75fd5211",
+      "bytes": 283622,
+      "inputs": [
+        {
+          "source": "TII/results/fig4_external_expansion_20261024/views/fld.json",
+          "sha256": "8e78723e4e0993102fa02c28a24d05e3dacd94d1f641a3d5862f09007f6eea6f"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 6053,
+        "column_paths": 0
+      }
+    },
+    {
+      "asset": "assets/compare-edlines.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "119e73cc51fb5ec191d73987d4cc270f56bc46de5508f288844759c8f7a3913f",
+      "bytes": 173376,
+      "inputs": [
+        {
+          "source": "TII/results/fig4_external_expansion_20261024/views/edlines.json",
+          "sha256": "48c374cf6584e9381c537f9807bb705416ddf4b4434da269b6527d19aa4ed89b"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 2360,
+        "column_paths": 0
+      }
+    }
+  ]
+}
