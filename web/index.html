@@ -10,26 +10,256 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="presentation.css">
   <script src="script.js" defer></script>
+
+  <style>
+    /* Editorial, left-aligned hero: overrides the original centered title layout. */
+    .hero .hero-layout.hero-layout--editorial {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      align-items: center;
+      gap: clamp(2rem, 5vw, 5rem);
+      padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(2.75rem, 4vw, 4rem);
+      text-align: left;
+    }
+
+    .hero .hero-copy.hero-copy--left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      text-align: left;
+    }
+
+    .hero .hero-copy--left .kicker {
+      justify-content: flex-start;
+      margin-left: 0;
+      text-align: left;
+    }
+
+    .hero .hero-copy--left h1 {
+      width: 100%;
+      margin: 1.1rem 0 1.35rem;
+      font-size: clamp(4.25rem, 7.2vw, 7.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+      text-align: left;
+    }
+
+    .hero .hero-copy--left .paper-title {
+      max-width: 760px;
+      margin: 0 0 1.2rem;
+      font-size: clamp(1.65rem, 2.55vw, 2.55rem);
+      line-height: 1.18;
+      letter-spacing: -0.045em;
+      text-align: left;
+      text-wrap: balance;
+    }
+
+    .hero .hero-copy--left .subtitle {
+      max-width: 38rem;
+      margin: 0 0 1.8rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    .hero .hero-copy--left .btn-row {
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.7rem;
+      width: 100%;
+    }
+
+    .hero .hero-copy--left .manuscript-note {
+      margin: 1.2rem 0 0;
+      text-align: left;
+    }
+
+    .hero .hero-visual {
+      position: relative;
+      isolation: isolate;
+      width: 100%;
+      min-width: 0;
+      aspect-ratio: 0.96;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(185, 229, 218, 0.25);
+      border-radius: 1.15rem;
+      background: #10292f;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero .hero-visual::after {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(9, 25, 31, 0.02) 35%,
+        rgba(9, 25, 31, 0.28) 58%,
+        rgba(9, 25, 31, 0.94) 100%
+      );
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero .hero-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero .hero-visual-caption {
+      position: absolute;
+      z-index: 1;
+      right: clamp(1.2rem, 3vw, 2rem);
+      bottom: clamp(1.2rem, 3vw, 2rem);
+      left: clamp(1.2rem, 3vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.65rem;
+      margin: 0;
+      color: #f5fbf9;
+    }
+
+    .hero .hero-visual-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.38rem 0.58rem;
+      border: 1px solid rgba(194, 235, 224, 0.35);
+      border-radius: 999px;
+      background: rgba(8, 28, 33, 0.52);
+      color: #a7e3d2;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .hero .hero-visual-caption strong {
+      font-size: clamp(1.45rem, 2.3vw, 2.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      font-weight: 650;
+    }
+
+    .hero .metrics {
+      margin-top: clamp(1rem, 2vw, 2rem);
+    }
+
+    @media (max-width: 900px) {
+      .hero .hero-layout.hero-layout--editorial {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.5rem;
+        padding-top: 3.5rem;
+      }
+
+      .hero .hero-copy.hero-copy--left {
+        max-width: 760px;
+      }
+
+      .hero .hero-copy--left h1 {
+        font-size: clamp(4rem, 12vw, 6.5rem);
+      }
+
+      .hero .hero-copy--left .paper-title {
+        max-width: 700px;
+        font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+      }
+
+      .hero .hero-visual {
+        aspect-ratio: 1.45;
+        max-height: 520px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero .hero-layout.hero-layout--editorial {
+        gap: 2rem;
+        padding-top: 2.75rem;
+        padding-bottom: 2rem;
+      }
+
+      .hero .hero-copy--left h1 {
+        margin-top: 0.9rem;
+        font-size: clamp(3.65rem, 16vw, 5rem);
+      }
+
+      .hero .hero-copy--left .paper-title {
+        font-size: clamp(1.55rem, 7.2vw, 2rem);
+      }
+
+      .hero .hero-copy--left .btn-row {
+        flex-wrap: wrap;
+      }
+
+      .hero .hero-copy--left .btn {
+        max-width: 100%;
+      }
+
+      .hero .hero-visual {
+        aspect-ratio: 1.12;
+      }
+
+      .hero .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="hero" id="top">
     <div class="container hero-inner">
-      <div class="hero-masthead"><a class="masthead-brand" href="#top" aria-label="LiDAR2CAD home"><span class="brand-symbol" aria-hidden="true">L<span>2</span>C</span> Research project</a><a class="masthead-link" href="#resources">Code &amp; reported data <span aria-hidden="true">↗</span></a></div>
-      <div class="hero-layout">
-        <div class="hero-copy">
+      <div class="hero-masthead">
+        <a class="masthead-brand" href="#top" aria-label="LiDAR2CAD home">
+          <span class="brand-symbol" aria-hidden="true">L<span>2</span>C</span>
+          <span>Research project</span>
+        </a>
+        <a class="masthead-link" href="#resources">Code &amp; reported data <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="hero-layout hero-layout--editorial">
+        <div class="hero-copy hero-copy--left">
           <p class="kicker"><span class="status-dot" aria-hidden="true"></span> From field evidence to semantic CAD</p>
           <h1>LiDAR<span>2</span>CAD</h1>
-          <p class="paper-title">Joint Structural Reconstruction From LiDAR and Design CAD for Underground Parking Garages</p>
+          <p class="paper-title">Joint Structural Reconstruction<br class="desktop-break"> From LiDAR and Design CAD for Underground Parking Garages</p>
           <p class="subtitle">Measured geometry meets design intelligence.<br>Recover structures. Preserve their evidence.</p>
+
           <div class="btn-row">
-            <a class="btn primary" href="assets/LiDAR2CAD-paper.pdf" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 20 20"><path d="M5 2.5h7l3 3v12H5zM12 2.5v4h3M8 10h4M8 13h4"/></svg>Read paper <span aria-hidden="true">↗</span></a>
-            <a class="btn" href="assets/releases/LiDAR2CAD-source-v0.1.0.zip" download><svg aria-hidden="true" viewBox="0 0 20 20"><path d="m7 5-5 5 5 5m6-10 5 5-5 5m-2-12-2 14"/></svg>Source code</a>
-            <a class="btn" href="assets/releases/LiDAR2CAD-data-v0.1.0.zip" download><svg aria-hidden="true" viewBox="0 0 20 20"><ellipse cx="10" cy="4" rx="6" ry="2.5"/><path d="M4 4v11c0 3.3 12 3.3 12 0V4M4 9.5c0 3.3 12 3.3 12 0"/></svg>Data &amp; tables</a>
+            <a class="btn primary" href="#comparison">
+              <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M3 5h14M3 10h14M3 15h8M13 13l2 2 3-4"/></svg>
+              Explore comparison <span aria-hidden="true">↓</span>
+            </a>
+            <a class="btn" href="assets/releases/LiDAR2CAD-source-v0.1.0.zip" download>
+              <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m7 5-5 5 5 5m6-10 5 5-5 5m-2-12-2 14"/></svg>
+              Source code
+            </a>
+            <a class="btn" href="assets/releases/LiDAR2CAD-data-v0.1.0.zip" download>
+              <svg aria-hidden="true" viewBox="0 0 20 20"><ellipse cx="10" cy="4" rx="6" ry="2.5"/><path d="M4 4v11c0 3.3 12 3.3 12 0V4M4 9.5c0 3.3 12 3.3 12 0"/></svg>
+              Data &amp; tables
+            </a>
           </div>
           <p class="manuscript-note">Research manuscript <span aria-hidden="true">/</span> Source release v0.1.0</p>
         </div>
+
+        <figure class="hero-visual" aria-label="Full-scene LiDAR2CAD reconstruction from the ICPARK underground parking scene">
+          <img src="assets/compare-complete.webp" width="1800" height="1480"
+               alt="Top-down view of the complete LiDAR2CAD structural reconstruction"
+               fetchpriority="high">
+          <figcaption class="hero-visual-caption">
+            <span class="hero-visual-label">ICPARK / FULL-SCENE</span>
+            <strong>From field evidence<br>to semantic CAD.</strong>
+          </figcaption>
+        </figure>
       </div>
+
       <div class="metrics" aria-label="Reported headline results">
         <div class="metric"><strong>86.44<span>%</span></strong><span>Wall F1</span><small>Four ICPARK evaluation regions</small></div>
         <div class="metric"><strong>93.59<span>%</span></strong><span>Column-boundary F1</span><small>Length-weighted geometry evaluation</small></div>
