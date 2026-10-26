@@ -13,6 +13,14 @@
       "bytes": 299116
     },
     {
+      "asset": "assets/platform.webp",
+      "source": "paper/final_en/figures/platform.pdf",
+      "source_sha256": "5054dde2eb8f015db811300d3e825f0001eea947ce35405499663647310f53f4",
+      "width": 1800,
+      "height": 1114,
+      "bytes": 81934
+    },
+    {
       "asset": "assets/stages.webp",
       "source": "paper/final_en/figures/full_rewrite_20261024/fig2_stages.pdf",
       "source_sha256": "180bbffc2b0bd7500a4c410c4fc690c0ae2ad296a496813b7daa06185e779347",

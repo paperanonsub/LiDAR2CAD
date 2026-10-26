@@ -271,7 +271,7 @@
           <span class="brand-symbol" aria-hidden="true">L<span>2</span>C</span>
           <span>Research project</span>
         </a>
-        <a class="masthead-link" href="#resources">Code &amp; reported data <span aria-hidden="true">↗</span></a>
+        <a class="masthead-link" href="https://github.com/paperanonsub/LiDAR2CAD" target="_blank" rel="noopener">Code &amp; reported data <span aria-hidden="true">↗</span></a>
       </div>
 
       <div class="hero-layout hero-layout--editorial hero-layout--title-only">
@@ -312,7 +312,7 @@
     <div class="container nav-inner">
       <a class="nav-brand" href="#top" aria-label="LiDAR2CAD home">LiDAR<span>2</span>CAD</a>
       <div class="nav-links">
-        <a href="#comparison">Compare</a><a href="#overview">Overview</a><a href="#method">Method</a><a href="#examples">Regions</a><a href="#results">Results</a><a href="#mechanism">Ablation</a><a href="#generalization">Facilities</a><a href="#output">Map layers</a><a href="#protocols">Protocol</a><a href="#resources">Downloads</a>
+        <a href="#comparison">Compare</a><a href="#overview">Overview</a><a href="#platform">Platform</a><a href="#method">Method</a><a href="#examples">Regions</a><a href="#results">Results</a><a href="#mechanism">Ablation</a><a href="#generalization">Facilities</a><a href="#output">Map layers</a><a href="#protocols">Protocol</a>
       </div>
     </div>
   </nav>
@@ -370,9 +370,28 @@
       </div>
     </section>
 
-    <section id="method" class="soft-section">
+    <section id="platform" class="soft-section">
       <div class="container">
-        <p class="eyebrow"><span class="section-number">02</span> Method</p>
+        <p class="eyebrow"><span class="section-number">02</span> Acquisition platform</p>
+        <h2>A lane-following robot captures the garage in 3D.</h2>
+        <p class="lead">ICPARK was acquired with an Ackermann mobile platform carrying three-dimensional LiDAR, an inertial measurement unit, wheel odometry, and edge computing. Registered, gravity-aligned maps provide the observational input for postmapping reconstruction.</p>
+        <div class="platform-layout">
+          <figure class="figure platform-figure">
+            <button class="image-button" type="button" data-zoom aria-label="Enlarge ICPARK acquisition platform diagram"><img src="assets/platform.webp" width="1800" height="1114" alt="ICPARK Ackermann acquisition robot with sensor fields of view and platform dimensions" loading="lazy"></button>
+            <figcaption>ICPARK acquisition platform, sensor fields of view, and dimensions. The Ackermann chassis provides wheel odometry.</figcaption>
+          </figure>
+          <div class="platform-specs" aria-label="Acquisition platform components">
+            <article class="card"><span class="card-index">Mobility</span><h3>Ackermann chassis</h3><p>A lane-following vehicle supplies wheel odometry while traversing the underground parking environment.</p></article>
+            <article class="card"><span class="card-index">Perception</span><h3>3D LiDAR + IMU</h3><p>LiDAR records structural observations; inertial measurements support registration and gravity alignment.</p></article>
+            <article class="card"><span class="card-index">Processing scope</span><h3>Edge computing, postmapping evaluation</h3><p>The platform carries edge computing, while the reported LiDAR2CAD evaluation begins from registered maps and does not claim end-to-end real-time operation.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="method">
+      <div class="container">
+        <p class="eyebrow"><span class="section-number">03</span> Method</p>
         <h2>Associate. Correct. Recover. Preserve provenance.</h2>
         <p class="lead">LiDAR2CAD operates after mapping and global alignment. Its structural reconstruction couples measured geometry and design priors without treating all retained geometry as equally verified.</p>
         <figure class="figure">
@@ -395,7 +414,7 @@
 
     <section id="examples">
       <div class="container">
-        <div class="section-heading"><div><p class="eyebrow"><span class="section-number">03</span> Interactive explorer</p><h2>One region. Four reconstruction stages.</h2></div><span class="figure-hint">Select a region · Click to enlarge ↗</span></div>
+        <div class="section-heading"><div><p class="eyebrow"><span class="section-number">04</span> Interactive explorer</p><h2>One region. Four reconstruction stages.</h2></div><span class="figure-hint">Select a region · Click to enlarge ↗</span></div>
         <p class="lead">Select an evaluation region to compare the same local crop across the four stages. These are the manuscript’s original region panels, not synthetic illustrations.</p>
         <div class="region-tabs" role="group" aria-label="Choose an evaluation region">
           <button type="button" class="region-tab active" aria-pressed="true" data-region="1">ROI 1 <small>eva-01</small></button>
@@ -416,7 +435,7 @@
 
     <section id="results" class="soft-section">
       <div class="container">
-        <p class="eyebrow"><span class="section-number">04</span> Main evidence · ICPARK</p>
+        <p class="eyebrow"><span class="section-number">05</span> Main evidence · ICPARK</p>
         <h2>Better wall recovery, with explicit structural checks.</h2>
         <p class="lead">At a 0.10 m matching tolerance, the full method reaches 86.44% wall F1 across four evaluation regions—33.30 percentage points above CAD-only and 15.03 points above a shared-front-end overlay.</p>
         <div class="grid-2 results-layout">
@@ -444,7 +463,7 @@
 
     <section id="mechanism">
       <div class="container">
-        <p class="eyebrow"><span class="section-number">05</span> Mechanism &amp; ablation</p>
+        <p class="eyebrow"><span class="section-number">06</span> Mechanism &amp; ablation</p>
         <h2>Each component solves a different problem.</h2>
         <div class="grid-3">
           <article class="card"><span class="result-value">+3.74 pp</span><h3>Improve existing observations</h3><p>With identical objects and source voxels, bidirectional correction raises observed-wall F1 from 74.46% to 78.20% over one-way correction.</p></article>
@@ -466,7 +485,7 @@
 
     <section id="generalization" class="soft-section">
       <div class="container">
-        <p class="eyebrow"><span class="section-number">06</span> Additional facilities &amp; sensitivity</p>
+        <p class="eyebrow"><span class="section-number">07</span> Additional facilities &amp; sensitivity</p>
         <h2>Beyond the primary evaluation regions.</h2>
         <p class="lead">Three additional facilities show wall-F1 improvements over design-only reconstruction. These are facility-level structural evaluations; they do not establish independently surveyed facility-layer accuracy or frozen-parameter transfer.</p>
         <div class="table-wrap"><table><caption>Reported results at three additional facilities</caption><thead><tr><th scope="col">Facility</th><th scope="col">CAD-only wall F1 (%)</th><th scope="col">Joint wall F1 (%)</th><th scope="col">Gain (pp)</th><th scope="col">Connection F1 (%)</th><th scope="col">OPEN crossings</th></tr></thead><tbody>
@@ -485,7 +504,7 @@
 
     <section id="output">
       <div class="container">
-        <p class="eyebrow"><span class="section-number">07</span> Traceable multilayer output</p>
+        <p class="eyebrow"><span class="section-number">08</span> Traceable multilayer output</p>
         <h2>A useful map should explain where its geometry comes from.</h2>
         <p class="lead">Structural provenance is kept separate from presence and visibility. An inferred segment is not relabeled as observed, and a retained design segment is not silently promoted to verified field geometry.</p>
         <div class="grid-3 provenance-grid">
@@ -502,7 +521,7 @@
 
     <section id="protocols" class="soft-section">
       <div class="container">
-        <p class="eyebrow"><span class="section-number">08</span> Evaluation protocol &amp; boundaries</p>
+        <p class="eyebrow"><span class="section-number">09</span> Evaluation protocol &amp; boundaries</p>
         <h2>Results are only useful when their scope is clear.</h2>
         <div class="protocols">
           <details open><summary>Primary scene and reference construction</summary><div class="details-body"><p>ICPARK is an underground parking garage in Chengdu, China, acquired with an Ackermann platform carrying LiDAR, IMU, and wheel odometry. The data contain 10,742,193 raw points, 4,720,223 cleaned points, and 4,548,561 unique voxels.</p><p>Two development regions and four evaluation regions use 20 × 20 m cores with 5 m context. The reference includes 82 wall entities (266.412 m), 83 column-boundary fragments (148.336 m), 46 connections, and 27 open intervals. After 0.10 m endpoint trimming, 23 open intervals are evaluable; four undecided relations are excluded. References are manually corrected from fused geometry, not an independent survey.</p></div></details>
@@ -513,20 +532,6 @@
       </div>
     </section>
 
-    <section id="resources">
-      <div class="container">
-        <p class="eyebrow"><span class="section-number">09</span> Open research resources</p>
-        <h2>Read it. Run it. Inspect it.</h2>
-        <div class="resource-card"><div><span class="resource-type">MANUSCRIPT · PDF</span><h3>LiDAR2CAD</h3><p>Full method, evaluation protocols, quantitative tables, and limitations.</p></div><a class="resource-link" href="assets/LiDAR2CAD-paper.pdf" target="_blank" rel="noopener">Open paper <span aria-hidden="true">↗</span></a></div>
-        <div class="release-resources">
-          <article class="resource-card"><div><span class="resource-type">SOURCE CODE · MIT · v0.1.0</span><h3>Reconstruction implementation</h3><p>Cross-height evidence, design coupling, conflict-aware topology, portable configuration, tests, and an executable synthetic demo.</p></div><a class="resource-link" href="assets/releases/LiDAR2CAD-source-v0.1.0.zip" download>Get source <span aria-hidden="true">↓</span></a></article>
-          <article class="resource-card"><div><span class="resource-type">REPORTED DATA · CC BY 4.0 · v0.1.0</span><h3>Results and demo inputs</h3><p>15 lossless CSV tables, the original result-provenance JSON, manuscript table sources, and explicitly synthetic example geometry.</p></div><a class="resource-link" href="assets/releases/LiDAR2CAD-data-v0.1.0.zip" download>Get data <span aria-hidden="true">↓</span></a></article>
-        </div>
-        <div class="release-links"><a href="assets/releases/data-inventory.json" target="_blank" rel="noopener">Data availability inventory ↗</a><a href="assets/releases/SHA256SUMS.txt" target="_blank" rel="noopener">SHA-256 checksums ↗</a><a href="assets/releases/release.json" target="_blank" rel="noopener">Release manifest ↗</a><a href="assets/releases/REPRODUCIBILITY.md" target="_blank" rel="noopener">Reproducibility notes ↗</a></div>
-        <aside class="callout warning"><strong>Initial source and reported-data release—not a complete field benchmark.</strong> Raw facility scans, engineering drawings, and model weights are not included. The local implementation snapshot is not certified as the exact source for the off-machine headline experiments. Synthetic inputs are for smoke tests only, never benchmark evidence.</aside>
-        <p class="small-note resource-note">The downloads are bundled with this static page. No remote repository has been configured, and these local files have not yet been uploaded to a public host. The source archive includes the small demo dataset so its quick-start runs without a separate download.</p>
-      </div>
-    </section>
   </main>
 
   <footer><div class="container footer-inner"><div><a class="footer-brand" href="#top">LiDAR<span>2</span>CAD</a><p>From measured evidence to traceable semantic maps.</p></div><div class="footer-meta">Research project homepage<br>Updated 26 October 2026<br><a href="#protocols">Evaluation scope &amp; limitations</a></div></div></footer>

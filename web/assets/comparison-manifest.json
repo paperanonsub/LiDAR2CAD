@@ -12,6 +12,24 @@
   ],
   "policy": "Display only; identical map extent, aspect ratio, scale bar and raster dimensions. The design comparison uses author-supplied red circle annotations on both the design and corresponding complete-reconstruction views. Frozen geometry unchanged. No fitting, shifts, synthetic perturbations or new experiments.",
   "design_stage": "Author-annotated original design at archived initial registration, not locally corrected.",
+  "annotation_pair_alignment": {
+    "method": "red-annotation affine registration",
+    "output_to_source_affine": [
+      [
+        0.996955931186676,
+        -2.5249999453080818e-05,
+        9.607771873474121
+      ],
+      [
+        9.667000267654657e-05,
+        0.9990220665931702,
+        1.7862396240234375
+      ]
+    ],
+    "correlation": 0.98783665,
+    "red_mask_iou": 0.90922738,
+    "reference_red_coverage": 0.94806595
+  },
   "cloud_display": "Source voxel centroids, top-down XY projection; deterministic striding matches the manuscript cloud display policy.",
   "complete_display": "Manuscript complete reconstruction, including observed/inferred walls, unverified retained design, columns and mapped facilities. The Design CAD pair uses the author-annotated complete-reconstruction PDF. Display provenance does not imply field verification.",
   "evaluation_scope": "Qualitative full-scene comparison; quantitative metrics remain restricted to annotated evaluation regions.",
@@ -46,8 +64,8 @@
       "asset": "assets/compare-complete-annotated.webp",
       "width": 1800,
       "height": 1480,
-      "sha256": "122e919b390d6f6ee0ef1f6682a5259645525754a899227ba9b6664c5cbfa8d2",
-      "bytes": 573092,
+      "sha256": "f078f17818560276f6d9dd6226acf0c12b81f9c0cdf5319cee98b11fcfbd981d",
+      "bytes": 573678,
       "inputs": [
         {
           "source": "TII/paper/figures/\u6700\u7ec8\u7a3f\u5e26\u6807\u6ce8.pdf",
