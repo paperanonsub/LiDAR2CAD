@@ -10,10 +10,10 @@
     1800,
     1480
   ],
-  "policy": "Display only; identical map extent, aspect ratio, scale bar and raster dimensions. The design view uses author-supplied red circle annotations. Frozen geometry unchanged. No fitting, shifts, synthetic perturbations or new experiments.",
+  "policy": "Display only; identical map extent, aspect ratio, scale bar and raster dimensions. The design comparison uses author-supplied red circle annotations on both the design and corresponding complete-reconstruction views. Frozen geometry unchanged. No fitting, shifts, synthetic perturbations or new experiments.",
   "design_stage": "Author-annotated original design at archived initial registration, not locally corrected.",
   "cloud_display": "Source voxel centroids, top-down XY projection; deterministic striding matches the manuscript cloud display policy.",
-  "complete_display": "Manuscript complete reconstruction, including observed/inferred walls, unverified retained design, columns and mapped facilities. Display provenance does not imply field verification.",
+  "complete_display": "Manuscript complete reconstruction, including observed/inferred walls, unverified retained design, columns and mapped facilities. The Design CAD pair uses the author-annotated complete-reconstruction PDF. Display provenance does not imply field verification.",
   "evaluation_scope": "Qualitative full-scene comparison; quantitative metrics remain restricted to annotated evaluation regions.",
   "assets": [
     {
@@ -34,6 +34,24 @@
         {
           "source": "TII/results/full_rewrite_20261024/views/full.json",
           "sha256": "95a0ed219d25a0ffea81ef02dcc55f79b8a3bb8c74fb81d78b68c6ddb71f9f21"
+        }
+      ],
+      "display_counts": {
+        "wall_paths": 9435,
+        "column_paths": 1999,
+        "facility_paths": 1822
+      }
+    },
+    {
+      "asset": "assets/compare-complete-annotated.webp",
+      "width": 1800,
+      "height": 1480,
+      "sha256": "122e919b390d6f6ee0ef1f6682a5259645525754a899227ba9b6664c5cbfa8d2",
+      "bytes": 573092,
+      "inputs": [
+        {
+          "source": "TII/paper/figures/\u6700\u7ec8\u7a3f\u5e26\u6807\u6ce8.pdf",
+          "sha256": "b94a335cbf171319d0c1dcc806080f4e280aef4fb9f8e157b4f6090c0ff5cb27"
         }
       ],
       "display_counts": {

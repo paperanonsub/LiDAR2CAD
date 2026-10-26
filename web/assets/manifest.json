@@ -183,9 +183,9 @@
     {
       "asset": "assets/LiDAR2CAD-paper.pdf",
       "source": "paper/final_en/main_en.pdf",
-      "source_sha256": "933738d22e04efd83b450fbcc08d24784cb8543d7ee8dfd1b30fc1874616d6ca",
-      "pages": 11,
-      "bytes": 18691211
+      "source_sha256": "be5fd2909980bfb1e877f32ab86031624aa71feb0e96fc0e1f213bb2e9071829",
+      "pages": 10,
+      "bytes": 18706484
     }
   ]
 }

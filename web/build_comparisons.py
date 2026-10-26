@@ -32,6 +32,7 @@ POINTS = ROOT / "TII/data/semantic_cache/exact_voxels.npz"
 ARCH = ROOT / "outputs/parking/design_fusion/icpar_r309_aligned/artifacts/design_arch.json"
 DESIGN_AUDIT = ROOT / "TII/paper/figures/full_rewrite_20261024/fig3a_cad_overlay.json"
 DESIGN_ANNOTATED = ROOT / "TII/paper/figures/设计稿带标注.pdf"
+COMPLETE_ANNOTATED = ROOT / "TII/paper/figures/最终稿带标注.pdf"
 EXTENT = (-3.7, 298.8, -1.8, 246.9)
 WIDTH, HEIGHT, DPI = 1800, 1480, 180
 
@@ -148,9 +149,9 @@ def save(fig, ax, name, inputs, counts):
     return save_picture(Image.open(buffer).convert("RGB"), name, inputs, counts)
 
 
-def annotated_design_picture():
-    """Rasterize the author's circled design PDF without redrawing its annotations."""
-    with fitz.open(DESIGN_ANNOTATED) as document:
+def annotated_picture(source):
+    """Rasterize an author's circled PDF without redrawing its annotations."""
+    with fitz.open(source) as document:
         page = document[0]
         scale = WIDTH / page.rect.width
         pixmap = page.get_pixmap(matrix=fitz.Matrix(scale, scale), alpha=False)
@@ -167,7 +168,7 @@ def annotated_design_picture():
 
 def main():
     ASSETS.mkdir(exist_ok=True)
-    protected = [SIDE, STATE, POINTS, ARCH, DESIGN_AUDIT, DESIGN_ANNOTATED]
+    protected = [SIDE, STATE, POINTS, ARCH, DESIGN_AUDIT, DESIGN_ANNOTATED, COMPLETE_ANNOTATED]
     before = {path: sha(path) for path in protected}
     exports = []
     groups = groups_from_sidecar()
@@ -181,8 +182,10 @@ def main():
     lines(ax, facilities, "#78958A", .35)
     lines(ax, walls)
     lines(ax, full["columns"], "#C7A0FF", .7)
-    exports.append(save(fig, ax, "complete", [STATE, SIDE, FROZEN / "full.json"],
-                        {"wall_paths": len(walls), "column_paths": len(full["columns"]), "facility_paths": len(facilities)}))
+    complete_counts = {"wall_paths": len(walls), "column_paths": len(full["columns"]), "facility_paths": len(facilities)}
+    exports.append(save(fig, ax, "complete", [STATE, SIDE, FROZEN / "full.json"], complete_counts))
+    exports.append(save_picture(annotated_picture(COMPLETE_ANNOTATED), "complete-annotated",
+                                [COMPLETE_ANNOTATED], complete_counts))
     with np.load(POINTS) as archive:
         points = archive["centroids"][:, :2]
     x0, x1, y0, y1 = EXTENT
@@ -194,7 +197,7 @@ def main():
     ax.scatter(points[:, 0], points[:, 1], s=.22, c="#B5BEC9", linewidths=0)
     exports.append(save(fig, ax, "cloud", [POINTS], {"source_points_in_view": count, "displayed_points": len(points), "display_stride": stride}))
     paths, source_dxf = design_paths()
-    exports.append(save_picture(annotated_design_picture(), "design",
+    exports.append(save_picture(annotated_picture(DESIGN_ANNOTATED), "design",
                                 [DESIGN_ANNOTATED, ARCH, DESIGN_AUDIT, source_dxf],
                                 dict(Counter(category for category, _ in paths))))
     names = {"lidar": "lidar_only", "hough": "probabilistic_hough", "contour": "dp_contour",
@@ -209,10 +212,10 @@ def main():
         exports.append(save(fig, ax, key, [source], {"wall_paths": len(view["walls"]), "column_paths": len(view["columns"])}))
     assert all(sha(path) == value for path, value in before.items()), "An immutable source changed"
     manifest = {"project": "LiDAR2CAD", "coordinate_extent_xyxy": list(EXTENT),
-                "dimensions": [WIDTH, HEIGHT], "policy": "Display only; identical map extent, aspect ratio, scale bar and raster dimensions. The design view uses author-supplied red circle annotations. Frozen geometry unchanged. No fitting, shifts, synthetic perturbations or new experiments.",
+                "dimensions": [WIDTH, HEIGHT], "policy": "Display only; identical map extent, aspect ratio, scale bar and raster dimensions. The design comparison uses author-supplied red circle annotations on both the design and corresponding complete-reconstruction views. Frozen geometry unchanged. No fitting, shifts, synthetic perturbations or new experiments.",
                 "design_stage": "Author-annotated original design at archived initial registration, not locally corrected.",
                 "cloud_display": "Source voxel centroids, top-down XY projection; deterministic striding matches the manuscript cloud display policy.",
-                "complete_display": "Manuscript complete reconstruction, including observed/inferred walls, unverified retained design, columns and mapped facilities. Display provenance does not imply field verification.",
+                "complete_display": "Manuscript complete reconstruction, including observed/inferred walls, unverified retained design, columns and mapped facilities. The Design CAD pair uses the author-annotated complete-reconstruction PDF. Display provenance does not imply field verification.",
                 "evaluation_scope": "Qualitative full-scene comparison; quantitative metrics remain restricted to annotated evaluation regions.",
                 "assets": exports}
     (ASSETS / "comparison-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

@@ -58,7 +58,7 @@ def main():
         for stage in range(1, 5):
             assert (WEB / "assets" / f"roi-{region}-stage-{stage}.webp").is_file()
     comparison_manifest = json.loads((WEB / "assets/comparison-manifest.json").read_text(encoding="utf-8"))
-    assert len(comparison_manifest["assets"]) == 11
+    assert len(comparison_manifest["assets"]) == 12
     for asset in comparison_manifest["assets"]:
         assert [asset["width"], asset["height"]] == comparison_manifest["dimensions"]
         assert hashlib.sha256((WEB / asset["asset"]).read_bytes()).hexdigest() == asset["sha256"]
@@ -116,7 +116,6 @@ def main():
             assert compare.evaluate("el => el.style.getPropertyValue('--reveal')") == "48%"
             report["hero_comparison"] = "pointer drag, range keyboard controls, and accessible values passed"
             pairs = {"cloud": "LiDAR point cloud", "lidar": "LiDAR-only", "design": "Design CAD", "hough": "P. Hough", "contour": "DP-Contour", "ransac": "RANSAC", "skeleton": "Morph-Skel", "lsd": "LSD", "fld": "FLD", "edlines": "EDLines"}
-            complete_source = page.locator(".compare-after").get_attribute("src")
             for key, label in pairs.items():
                 button = page.locator(f'[data-comparison="{key}"]')
                 button.click()
@@ -126,7 +125,8 @@ def main():
                 assert page.locator(".compare-before").get_attribute("src").endswith(f"compare-{key}.webp")
                 assert page.locator(".before-label").inner_text() == label
                 assert page.locator(".after-label").inner_text() == "Complete reconstruction"
-                assert page.locator(".compare-after").get_attribute("src") == complete_source
+                expected_complete = "compare-complete-annotated.webp" if key == "design" else "compare-complete.webp"
+                assert page.locator(".compare-after").get_attribute("src").endswith(expected_complete)
                 assert reveal.input_value() == "48"
                 assert label in reveal.get_attribute("aria-valuetext")
             page.evaluate("""() => {
@@ -137,7 +137,7 @@ def main():
             assert page.locator(".before-label").inner_text() == "LiDAR-only"
             page.locator('[data-comparison="cloud"]').click()
             page.wait_for_function("document.querySelector('.before-label').textContent === 'LiDAR point cloud'")
-            report["comparison_choices"] = "all ten pairs passed; fixed complete reconstruction and aligned 1800x1480 assets"
+            report["comparison_choices"] = "all ten pairs passed; the Design CAD pair uses matching annotated views; all assets are aligned at 1800x1480"
             report["comparison_placement"] = "title-only hero; comparison appears before section 01"
             fullscreen = page.locator(".fullscreen-button")
             assert fullscreen.is_visible()
@@ -302,6 +302,7 @@ def main():
             file_page.locator('[data-comparison="design"]').click()
             file_page.wait_for_function("document.querySelector('.before-label').textContent === 'Design CAD'")
             assert file_page.locator(".compare-before").get_attribute("src").endswith("compare-design.webp")
+            assert file_page.locator(".compare-after").get_attribute("src").endswith("compare-complete-annotated.webp")
             file_page.locator('[data-region="3"]').click()
             assert "eva-03" in file_page.locator("#region-note").inner_text()
             file_context.close()

@@ -6,7 +6,7 @@ if (heroReveal && heroCompare) {
   const comparisonViews = {
     cloud: {label: "LiDAR point cloud", note: "Top-down projection of the source LiDAR points. All comparisons share the same map extent and scale."},
     lidar: {label: "LiDAR-only", note: "Measured wall and column reconstruction before joint correction and conditional completion."},
-    design: {label: "Design CAD", note: "Author-annotated original design at its archived initial global registration, before refined alignment and local correction. Red circles mark matched discrepancy regions; registration residuals are not necessarily physical design changes.", alt: "Author-annotated design CAD of the ICPARK scene with red circles marking matched discrepancy regions"},
+    design: {label: "Design CAD", note: "Author-annotated original design at its archived initial global registration, before refined alignment and local correction. Red circles mark the same discrepancy regions in both views; registration residuals are not necessarily physical design changes.", alt: "Author-annotated design CAD of the ICPARK scene with red circles marking matched discrepancy regions", after: "assets/compare-complete-annotated.webp", afterAlt: "Author-annotated complete LiDAR2CAD reconstruction with red circles marking the corresponding discrepancy regions"},
     hough: {label: "P. Hough", note: "Probabilistic Hough baseline from the manuscript's frozen full-scene linework."},
     contour: {label: "DP-Contour", note: "Douglas–Peucker contour baseline from the manuscript's frozen full-scene linework."},
     ransac: {label: "RANSAC", note: "RANSAC line baseline from the manuscript's frozen full-scene linework."},
@@ -17,6 +17,8 @@ if (heroReveal && heroCompare) {
   };
   let currentComparison = "cloud";
   let requestedComparison = 0;
+  const defaultComplete = {src: "assets/compare-complete.webp", alt: "Complete LiDAR2CAD reconstruction of the ICPARK scene"};
+  const afterImage = heroCompare.querySelector(".compare-after");
   const beforeImage = heroCompare.querySelector(".compare-before");
   const beforeLabel = heroCompare.querySelector(".before-label");
   const comparisonNote = document.getElementById("comparison-note");
@@ -37,11 +39,15 @@ if (heroReveal && heroCompare) {
       heroCompare.setAttribute("aria-busy", "true");
       try {
         const image = new Image();
+        const completeImage = new Image();
         image.src = "assets/compare-" + key + ".webp";
-        await image.decode();
+        completeImage.src = view.after || defaultComplete.src;
+        await Promise.all([image.decode(), completeImage.decode()]);
         if (request !== requestedComparison) return;
         beforeImage.src = image.src;
         beforeImage.alt = view.alt || (view.label + " of the ICPARK scene, using the same map extent as complete reconstruction");
+        afterImage.src = completeImage.src;
+        afterImage.alt = view.afterAlt || defaultComplete.alt;
         beforeLabel.textContent = view.label;
         comparisonNote.textContent = view.note;
         currentComparison = key;
