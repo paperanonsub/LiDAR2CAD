@@ -1,0 +1,199 @@
+{
+  "project": "LiDAR2CAD",
+  "description": "Static homepage assets exported from the current manuscript; original PDF sources are unchanged.",
+  "results_source": "results/author_results_20261025/author_results.json",
+  "evidence_note": "Author-confirmed off-machine measurements; not independently rerun for this website.",
+  "assets": [
+    {
+      "asset": "assets/architecture.webp",
+      "source": "paper/final_en/figures/full_rewrite_20261024/fig1_architecture.pdf",
+      "source_sha256": "4d14403ef77b4148fcac101e9d18a6777e88ab0b253adbf85666addbe8333077",
+      "width": 2400,
+      "height": 782,
+      "bytes": 299116
+    },
+    {
+      "asset": "assets/platform.webp",
+      "source": "paper/final_en/figures/platform.pdf",
+      "source_sha256": "5054dde2eb8f015db811300d3e825f0001eea947ce35405499663647310f53f4",
+      "width": 1800,
+      "height": 1114,
+      "bytes": 81934
+    },
+    {
+      "asset": "assets/stages.webp",
+      "source": "paper/final_en/figures/full_rewrite_20261024/fig2_stages.pdf",
+      "source_sha256": "180bbffc2b0bd7500a4c410c4fc690c0ae2ad296a496813b7daa06185e779347",
+      "width": 2400,
+      "height": 631,
+      "bytes": 393268
+    },
+    {
+      "asset": "assets/global-comparison.webp",
+      "source": "paper/final_en/figures/full_rewrite_20261024/fig3_external_global.pdf",
+      "source_sha256": "c014c7855384cb126373cf97e1f2d59909cf8554c6e161124b521b87ce4cef3a",
+      "width": 2400,
+      "height": 1073,
+      "bytes": 611282
+    },
+    {
+      "asset": "assets/sensitivity-shift.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig6_sensitivity_topology_a.pdf",
+      "source_sha256": "cd72bc27c06ca7465bb1d86dbdb293a759898efe514b1681a961f2b1a8da5faa",
+      "width": 1400,
+      "height": 1219,
+      "bytes": 64660
+    },
+    {
+      "asset": "assets/sensitivity-deletion.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig6_sensitivity_topology_b.pdf",
+      "source_sha256": "a9c102b9f10c3dd550d00cc4de7f2efd81162a5222ae41a425b2257dbd6ae705",
+      "width": 1400,
+      "height": 1219,
+      "bytes": 73882
+    },
+    {
+      "asset": "assets/provenance.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig7_sources_quality_a.pdf",
+      "source_sha256": "a6eed4e18e1c2e66eb25f93ff07d118bca84d3d032dd999d6c449c5128c6a0f8",
+      "width": 1400,
+      "height": 1219,
+      "bytes": 31356
+    },
+    {
+      "asset": "assets/roi-1-stage-1.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi1_stage1.pdf",
+      "source_sha256": "f1b3f52ad1eea79440261e7acf1e967babc9b8e8d718b719aab6a39da9250944",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 407052
+    },
+    {
+      "asset": "assets/roi-1-stage-2.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi1_stage2.pdf",
+      "source_sha256": "aac897ab79eef7d9e3a5840b345bd9b8671806ac13582f8f9784477141d02856",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 30378
+    },
+    {
+      "asset": "assets/roi-1-stage-3.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi1_stage3.pdf",
+      "source_sha256": "1f2f072310a025d0878bc35f8f96c1d76131becb67a4d86d0c676be5e63a2170",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 21638
+    },
+    {
+      "asset": "assets/roi-1-stage-4.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi1_stage4.pdf",
+      "source_sha256": "3f2d8dab53a2044bec4261b05ca2e0fd1896b6026e4e19a5cd188b871d69c843",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 44182
+    },
+    {
+      "asset": "assets/roi-2-stage-1.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi2_stage1.pdf",
+      "source_sha256": "a2f0428ff25ccbdf691df1c3e053d24caa6058a78b82bf558e940432953345f6",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 470606
+    },
+    {
+      "asset": "assets/roi-2-stage-2.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi2_stage2.pdf",
+      "source_sha256": "110c0deed2f8cc20d17fa5ebe3b6d1badccb29f59693a4e1521526c7b6809448",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 17500
+    },
+    {
+      "asset": "assets/roi-2-stage-3.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi2_stage3.pdf",
+      "source_sha256": "b0123dd9c9b41184e1349678772f86d8d5d402c5e63f56a59d8874c843c34c59",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 6278
+    },
+    {
+      "asset": "assets/roi-2-stage-4.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi2_stage4.pdf",
+      "source_sha256": "cbf29a014a7159d3e77442b92f832e40986b622a4fa0a4ebb8c37674c148a71f",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 25250
+    },
+    {
+      "asset": "assets/roi-3-stage-1.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi3_stage1.pdf",
+      "source_sha256": "5fc1cd46c813148130094ef36d969bb772ec3a0be967040356ccef474913a9c7",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 378290
+    },
+    {
+      "asset": "assets/roi-3-stage-2.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi3_stage2.pdf",
+      "source_sha256": "eaf4cb553c677927ed2cbdc43b80df525fab72874af8f33b9781703c464fac9a",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 22000
+    },
+    {
+      "asset": "assets/roi-3-stage-3.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi3_stage3.pdf",
+      "source_sha256": "df2b17e1e2bc80b93883980fb114ab8b57ace6e0f11388da50e5551e03b295e9",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 8932
+    },
+    {
+      "asset": "assets/roi-3-stage-4.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi3_stage4.pdf",
+      "source_sha256": "0f517ad63d59e51e05dfd495d7725870c6e1f58c7bc735551bed8fbcb6a8df38",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 25202
+    },
+    {
+      "asset": "assets/roi-4-stage-1.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi4_stage1.pdf",
+      "source_sha256": "d02e60dba0510b952e3aa532eea1fe53640c03ac714ab117bd0c2f568aca9639",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 252576
+    },
+    {
+      "asset": "assets/roi-4-stage-2.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi4_stage2.pdf",
+      "source_sha256": "31fde09cb2ba2df9ee0fbd64a1dbf80f0a469d2837d792e78e5013242f16f436",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 27892
+    },
+    {
+      "asset": "assets/roi-4-stage-3.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi4_stage3.pdf",
+      "source_sha256": "7c4983ca06a90e7c88b9cb156a6d2ce6c93f22c61c5f008ad21b21fa7cc81299",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 16382
+    },
+    {
+      "asset": "assets/roi-4-stage-4.webp",
+      "source": "paper/final_en/figures/standalone_20261025/fig5_roi4_stage4.pdf",
+      "source_sha256": "09f0834abc66f9e865cf94d1648e8a480f6a01a82faf6644a18d2bc5f0a9c516",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 47914
+    },
+    {
+      "asset": "assets/LiDAR2CAD-paper.pdf",
+      "source": "paper/final_en/main_en.pdf",
+      "source_sha256": "be5fd2909980bfb1e877f32ab86031624aa71feb0e96fc0e1f213bb2e9071829",
+      "pages": 10,
+      "bytes": 18706484
+    }
+  ]
+}
