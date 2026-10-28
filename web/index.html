@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#16353b">
-  <meta name="description" content="LiDAR2CAD jointly reconstructs underground-parking structures from LiDAR observations and design CAD, preserving the provenance of observed, inferred, and unverified geometry.">
+  <meta name="description" content="LiDAR2CAD jointly reconstructs underground-parking structures from LiDAR observations and CAD drawings, preserving the provenance of observed, inferred, and unverified geometry.">
   <title>LiDAR2CAD — Joint Structural Reconstruction</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -261,23 +261,6 @@
 
   </style>
 
-
-  <style>
-    /* Reduce the acquisition-platform diagram to 50% of its current display width. */
-    .platform-figure .image-button {
-      display: block;
-      width: 50%;
-      max-width: 50%;
-      margin-inline: auto;
-    }
-
-    .platform-figure .image-button img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-  </style>
-
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -295,7 +278,7 @@
         <div class="hero-copy hero-copy--left">
           <p class="kicker"><span class="status-dot" aria-hidden="true"></span> From field evidence to semantic CAD</p>
           <h1>LiDAR<span>2</span>CAD</h1>
-          <p class="paper-title">Joint Structural Reconstruction From LiDAR and Design CAD for Underground Parking Garages</p>
+          <p class="paper-title">Joint Structural Reconstruction From LiDAR and CAD Drawings for Underground Parking Garages</p>
           <p class="subtitle">Measured geometry meets design intelligence.<br>Recover structures. Preserve their evidence.</p>
 
           <div class="btn-row">
@@ -342,7 +325,7 @@
           <div class="comparison-inputs" role="group" aria-label="Compare with input sources">
             <button type="button" class="comparison-option active" data-comparison="cloud" aria-pressed="true" disabled><span>Complete reconstruction <span aria-hidden="true">↔</span></span><strong>LiDAR point cloud</strong></button>
             <button type="button" class="comparison-option" data-comparison="lidar" aria-pressed="false" disabled><span>Complete reconstruction <span aria-hidden="true">↔</span></span><strong>LiDAR-only</strong></button>
-            <button type="button" class="comparison-option" data-comparison="design" aria-pressed="false" disabled><span>Complete reconstruction <span aria-hidden="true">↔</span></span><strong>Design CAD</strong></button>
+            <button type="button" class="comparison-option" data-comparison="design" aria-pressed="false" disabled><span>Complete reconstruction <span aria-hidden="true">↔</span></span><strong>CAD drawing</strong></button>
           </div>
           <div class="comparison-baselines" role="group" aria-label="Compare complete reconstruction with classical methods">
             <button type="button" class="comparison-option" data-comparison="hough" aria-pressed="false" disabled><span>vs.</span><strong>P. Hough</strong></button>
@@ -373,7 +356,7 @@
       <div class="container">
         <p class="eyebrow"><span class="section-number">01</span> The problem &amp; core idea</p>
         <h2>Two imperfect sources.<br>One evidence-aware reconstruction.</h2>
-        <p class="lead">Vehicle occlusion and uneven LiDAR coverage fragment observed walls. Design CAD supplies a useful structural prior, but can retain outdated or misplaced geometry. Simply overlaying the two may preserve errors or close passages that should remain open.</p>
+        <p class="lead">Vehicle occlusion and uneven LiDAR coverage fragment observed walls. CAD drawings provide a useful structural prior, but may retain outdated or misplaced geometry. Simply overlaying them with observations may preserve errors or close passages that should remain open.</p>
         <div class="grid-3 problem-grid">
           <article class="card"><span class="card-index">01 / Observation gap</span><h3>Incomplete measurements</h3><p>Associate wall observations across height windows using unique source voxels, rather than treating each projection as independent evidence.</p></article>
           <article class="card"><span class="card-index">02 / Design discrepancy</span><h3>Correct both directions</h3><p>Use design directions to regularize measured walls, then let reliable observations update supported design intervals.</p></article>
@@ -383,7 +366,7 @@
           <button class="image-button" type="button" data-zoom aria-label="Enlarge full-scene reconstruction stages"><img src="assets/stages.webp" width="2400" height="631" alt="Full-scene comparison of LiDAR input, LiDAR-only reconstruction, bidirectional correction, and completed CAD" fetchpriority="high"></button>
           <figcaption>From fragmented observations to a jointly reconstructed CAD map. Local correction and conditional completion play different roles; the final map retains their provenance.</figcaption>
         </figure>
-        <details class="abstract-panel"><summary>Read the abstract</summary><div class="details-body"><p>Industrial digital twins and intelligent facility management require traceable spatial information that reconciles field measurements with engineering designs. In underground parking garages, this information must integrate structural and functional elements despite design discrepancies and incomplete observations. Design drawings may retain outdated structures, whereas vehicle occlusion and uneven laser-scanning coverage fragment observed walls and obscure connections. Simply combining these sources can therefore preserve incorrect geometry or close open passages. This paper presents LiDAR2CAD, which couples joint structural reconstruction with facility-layer mapping to produce multilayer semantic computer-aided design maps. Unique voxels associate observations across heights. Design directions constrain wall fitting, reliable observations update supported design intervals, and observed anchors, design continuity, and conflict checks guide missing-structure recovery. Parking spaces, lane markings, and directional arrows are mapped from design layers. The output distinguishes observed geometry, conditional inference, and unverified design retention. Experiments on four ICPARK evaluation regions achieve wall and connection F1 scores of 86.44% and 92.31%, respectively. Controlled comparisons support the benefit of bidirectional correction, and three additional facilities show improvements over design-only reconstruction. These results support traceable structural recovery, while large design discrepancies and difficult regions remain challenging.</p></div></details>
+        <details class="abstract-panel"><summary>Read the abstract</summary><div class="details-body"><p>Traceable geometric models are an important foundation for digital-twin applications in underground parking garages, where computer-aided design (CAD) drawings may be outdated and LiDAR observations are fragmented by occlusion and uneven coverage. We present LiDAR2CAD, a method for joint structural reconstruction from LiDAR point clouds and CAD drawings. It associates wall observations across heights using unique 3-D voxels, alternates between design-constrained wall fitting and observation-driven design correction, and recovers missing structures using observed anchors, design continuity, and geometric-conflict checks. The method distinguishes observed geometry, conditionally inferred structures, and unverified design geometry, while mapping parking spaces, lane markings, and directional arrows from design layers into a multilayer semantic CAD map. On four evaluation regions of ICPARK, an underground parking garage in Chengdu, China, LiDAR2CAD achieves wall and connection F1 scores of 86.44% and 92.31%, respectively. Controlled comparisons show that bidirectional correction improves wall F1 by 5.09 percentage points over one-way correction, and tests on three additional facilities show improvements over CAD-only reconstruction. These results demonstrate traceable LiDAR–CAD structural reconstruction that can support digital-twin development, while large design discrepancies and difficult regions remain challenging.</p></div></details>
       </div>
     </section>
 
